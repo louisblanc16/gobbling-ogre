@@ -1,19 +1,21 @@
-package com.jad;
 
-import com.jad.controller.Controller;
-import com.jad.controller.IController;
-import com.jad.model.IModel;
-import com.jad.model.Model;
-import com.jad.view.IView;
-import com.jad.view.View;
+package com.jad.main;
 
-public enum Main {
-    ;
+import com.jad.model.Foret;
+import com.jad.model.ForetClassique;
+import com.jad.view.ForetView;
+import com.jad.controller.ForetController;
+
+public class Main {
 
     public static void main(String[] args) {
-        IModel model = new Model();
-        IView view = new View(model);
-        IController controller = new Controller(model, view);
-        controller.proceed();
+        Foret foret = new ForetClassique(15, 10);
+
+        ForetView view = new ForetView();
+
+        ForetController controller =
+            new ForetController(foret, view);
+
+        controller.lancer();
     }
 }
